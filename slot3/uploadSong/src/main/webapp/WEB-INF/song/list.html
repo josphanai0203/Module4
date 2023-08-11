@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<a class="btn btn-primary" th:href="@{/upload}">Upload Song</a>
+<table class="table table-bordered mt-5">
+    <tr class="bg-success">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Singer</th>
+        <th>Type</th>
+        <th>Audio</th>
+    </tr>
+    <tr th:each="song,status : ${list}" th:object="${song}" >
+        <td th:text="${status.count}"></td>
+        <td th:text="${song.name}"></td>
+        <td th:text="${song.singer}"></td>
+        <td th:text="${song.songType}"></td>
+        <td>
+            <audio controls>
+                <source th:src="@{'/listSong/' + *{link.getOriginalFilename()}}" type="audio/mpeg">
+            </audio>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
