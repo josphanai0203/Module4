@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">Tạo Mới</h2>
+    <form action="/create" method="post" th:object="${product}">
+        <label for="id" class="form-label">ID</label>
+        <input type="number" class="form-control" th:field="*{id}" id="id">
+        <br><label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" th:field="*{name}" id="Name">
+        <br><label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" th:field="*{quantity}" id="Quantity">
+        <br><label for="Price" class="form-label">Price</label>
+        <input type="text" class="form-control" th:field="*{price}" id="Price">
+        <br>
+        <input type="submit" value="Thêm Sản Phẩm">
+    </form>
+</div>
+</body>
+</html>
