@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create">create</a>
+<table style="border-collapse:collapse" border="1">
+  <tr>
+    <th>Họ Tên</th>
+    <th>Năm sinh</th>
+    <th>Giới tính</th>
+    <th>Quốc tịch</th>
+    <th>Số CMND</th>
+    <th>Thông tin đi lại</th>
+    <th>Số hiệu phương tiện</th>
+    <th>Ngày khởi hành</th>
+    <th>Ngày kết thúc</th>
+    <th>Tỉnh/thành</th>
+    <th>Quận/huyện</th>
+    <th>Phường/xã</th>
+    <th>Điện thoại</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+    <tr th:each="d:${toKhai}">
+      <td th:text="${d.getTen()}"></td>
+      <td th:text="${d.getNgaySinh()}"></td>
+      <td th:text="${d.gioiTinh}"></td>
+      <td th:text="${d.getQuocTich()}"></td>
+      <td th:text="${d.getCmnd()}"></td>
+      <td th:text="${d.getPhuongTien()}"></td>
+      <td th:text="${d.getBienSo()}">${d.bienSo}</td>
+      <td th:text="${d.ngayKhoiHanh}">${d.ngayKhoiHanh}</td>
+      <td th:text="${d.ngayKetThuc}">${d.ngayKetThuc}</td>
+      <td th:text="${d.tinh}">${d.tinh}</td>
+      <td th:text="${d.huyen}">${d.huyen}</td>
+      <td th:text="${d.xa}">${d.xa}</td>
+      <td th:text="${d.getSdt()}">${d.sdt}</td>
+      <td th:text="${d.email}">${d.email}</td>
+      <td><a th:href="@{/update(idCard = ${d.getCmnd()})}">Update</a></td>
+    </tr>
+</table>
+</body>
+</html>
