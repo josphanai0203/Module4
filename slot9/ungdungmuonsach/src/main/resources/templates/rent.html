@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="/webjars/popper.js/2.9.3/umd/popper.js"></script>
+    <script src="/webjars/bootstrap/5.1.3/js/bootstrap.js"></script>
+    <script src="/webjars/jquery/3.6.4/jquery.js"></script>
+</head>
+<body>
+<div class="container" th:object="${book}">
+    <h3 th:text="*{bookName}"></h3>
+    <p th:text="*{author}"></p>
+    <form action="/rent/create" method="post">
+        <input type="hidden" name="id" th:value="*{bookId}"/>
+        <input class="btn btn-primary" type="submit" value="Rent"/>
+
+    </form>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" th:if="${key}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <p th:text="${key}"></p>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-secondary" th:href="@{/list}">Close</a>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $("#exampleModal").modal('show');
+    });
+</script>
+</body>
+</html>

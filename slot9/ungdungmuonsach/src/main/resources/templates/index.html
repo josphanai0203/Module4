@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="./webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table border="1" class="table-bordered table">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Quantity</th>
+            <th>Rent</th>
+        </tr>
+        <tr th:each="b: ${list}">
+            <td th:text="${b.bookName}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:text="${b.quantity}"></td>
+            <td><a th:href="@{/rent/create(id = ${b.bookId})}" th:class="${b.quantity>0}?'btn btn-primary':'btn btn-primary disabled'">Rent</a></td>
+        </tr>
+    </table>
+    <h3>Trả Sách</h3>
+    <form action="/book/return" method="post">
+        <input type="text" name="key">
+        <p th:if="${check}" th:text="${check}?'Trả Sách Thành Công':'Sai mã trả sách'"></p>
+        <input type="submit" value="Trả Sách">
+    </form>
+</div>
+</body>
+</html>
