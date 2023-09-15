@@ -1,0 +1,28 @@
+.color-red{
+    color: red;
+}
+.link{
+    color: #222;
+    text-decoration: none;
+}
+.des{
+    background-color: #F7F7F7;
+    border: 1px solid #D1D1D1;
+}
+.info{
+    background-color: #FFFCD9;
+}
+.gio-hang{
+    border: 1px solid #222222;
+}
+.green{
+    color: #54B661;
+}
+.bg-gray{
+    background-color: #F7F7F7 !important;
+}
+.link-btn{
+    color: red;
+    cursor: pointer;
+    text-decoration: none;
+}

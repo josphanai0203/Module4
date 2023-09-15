@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/webjars/popper.js"></script>
+    <script src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row g-0">
+        <div class="d-flex flex-column border col-4">
+            <img class="card-img card-img-top" th:src="@{/img/__${product.image}__}">
+            <div class="border text-center des">
+                <p th:text="${'Mã SP: '+ product.id}"></p>
+                <span>Giá : </span><span class="color-red" th:text="${#numbers.formatInteger(product.price, 3, 'DEFAULT')+' đ'}"></span>
+                <br>
+                <a class="btn btn-primary" th:href="@{/shop/add/__${product.id}__}">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="col-8 info">
+            <p>Mô tả</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
