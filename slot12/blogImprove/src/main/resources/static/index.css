@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+    color: #4f4f4f;
+}
+.truncate-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Số dòng tối đa */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.paging-icon{
+    margin: 4px;
+    color: #4f4f4f;
+}
+.active{
+    color: aqua;
+    font-weight: bold;
+}
